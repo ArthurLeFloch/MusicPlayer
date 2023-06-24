@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.alf.musicplayer.PlayingActivity">
+
+    <ImageView
+        android:id="@+id/playlistIcon"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/music_note" />
+
+    <TextView
+        android:id="@+id/playerMusicName"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:ellipsize="marquee"
+        android:marqueeRepeatLimit="marquee_forever"
+        android:scrollHorizontally="true"
+        android:singleLine="true"
+        android:gravity="center"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/playlistIcon" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/playerPlayPauseButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:clickable="true"
+            app:layout_constraintBottom_toBottomOf="@+id/playerSkipButton"
+            app:layout_constraintEnd_toStartOf="@+id/playerSkipButton"
+            app:layout_constraintTop_toTopOf="@+id/playerSkipButton"
+            app:layout_constraintVertical_bias="1.0"
+            app:srcCompat="@drawable/ic_pause" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/playerSkipButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:clickable="true"
+            app:layout_constraintBottom_toBottomOf="@+id/playerLikeButton"
+            app:layout_constraintEnd_toStartOf="@+id/playerLikeButton"
+            app:layout_constraintTop_toTopOf="@+id/playerLikeButton"
+            app:srcCompat="@drawable/ic_skip" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/playerPreviousButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:clickable="true"
+            app:layout_constraintBottom_toBottomOf="@+id/playerPlayPauseButton"
+            app:layout_constraintEnd_toStartOf="@+id/playerPlayPauseButton"
+            app:layout_constraintTop_toTopOf="@+id/playerPlayPauseButton"
+            app:layout_constraintVertical_bias="1.0"
+            app:srcCompat="@drawable/ic_previous" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/playerLikeButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="24dp"
+            android:clickable="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_like" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/playerDislikeButton"
+            android:layout_width="55dp"
+            android:layout_height="57dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:clickable="true"
+            app:layout_constraintBottom_toBottomOf="@+id/playerPreviousButton"
+            app:layout_constraintEnd_toStartOf="@+id/playerPreviousButton"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/playerPreviousButton"
+            app:srcCompat="@drawable/ic_dislike" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <SeekBar
+        android:id="@+id/seekBar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:max="1000"
+        android:progress="0"
+        app:layout_constraintBottom_toTopOf="@+id/constraintLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/playerPlaylistName"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:gravity="center"
+        app:layout_constraintEnd_toEndOf="@+id/playerMusicName"
+        app:layout_constraintStart_toStartOf="@+id/playerMusicName"
+        app:layout_constraintTop_toBottomOf="@+id/playerMusicName" />
+
+    <TextView
+        android:id="@+id/currentTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginBottom="8dp"
+        android:text="0:00"
+        app:layout_constraintBottom_toTopOf="@+id/seekBar"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/duration"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="8dp"
+        android:text="0:00"
+        app:layout_constraintBottom_toTopOf="@+id/seekBar"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/playerFavouriteButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="24dp"
+        android:clickable="true"
+        app:layout_constraintBottom_toBottomOf="@+id/playlistIcon"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/playlistIcon"
+        app:srcCompat="@drawable/ic_love_empty" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

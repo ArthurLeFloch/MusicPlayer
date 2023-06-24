@@ -1,0 +1,20 @@
+{
+  "version": "0",
+  "musics": [
+    {
+      "name": "music2",
+      "path": "\/data\/local\/tmp\/exampleFolder\/music2.mp3",
+      "frequency": 2
+    },
+    {
+      "name": "music3",
+      "path": "\/data\/local\/tmp\/exampleFolder\/music3.mp3",
+      "frequency": 3
+    },
+    {
+      "name": "music1",
+      "path": "\/data\/local\/tmp\/exampleFolder\/music1.mp3",
+      "frequency": 1
+    }
+  ]
+}

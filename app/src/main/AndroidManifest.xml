@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <uses-permission android:name="android.permission.READ_MEDIA_AUDIO" />
+    <uses-permission
+        android:name="android.permission.READ_EXTERNAL_STORAGE"
+        android:maxSdkVersion="32" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:requestLegacyExternalStorage="true"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.FMusicPlayer"
+        tools:targetApi="31">
+        <activity
+            android:name="com.alf.musicplayer.PlayingActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.alf.musicplayer.PlaylistActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.alf.musicplayer.MenuActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <service
+            android:name="com.alf.musicplayer.service.PlayerService"
+            android:foregroundServiceType="mediaPlayback"
+            android:stopWithTask="true" />
+
+        <receiver
+            android:name="com.alf.musicplayer.service.PlaylistBroadcastReceiver"
+            android:exported="true"
+            tools:ignore="ExportedReceiver">
+            <intent-filter>
+                <action android:name="action_play" />
+                <action android:name="action_reset" />
+                <action android:name="action_pause" />
+                <action android:name="action_skip" />
+                <action android:name="action_stop" />
+                <action android:name="action_love" />
+                <action android:name="action_undo_love" />
+                <action android:name="action_like" />
+                <action android:name="action_undo_like" />
+                <action android:name="action_dislike" />
+                <action android:name="action_update" />
+            </intent-filter>
+        </receiver>
+
+    </application>
+
+</manifest>
